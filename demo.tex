@@ -10,226 +10,76 @@
 
 \usemintedstyle{trac}
 
-\title{A few notes on workflow v2.0.0}
+\title{Required Skills for Software Development}
 \subtitle{}
 \date{\today}
-\author{Mohammad-Ali \textsc{A'r\^abi} \& Karsten \textsc{Fix}}
-\institute{AppTec Services GmbH}
+\author{Mohammad-Ali \textsc{A'r\^abi}}
+\institute{Albert-Ludwigs-Universität Freiburg}
 
 \begin{document}
 
 \maketitle
 
-\section{Branch Naming}
+\section{Programming Languages}
 
 \begin{frame}[fragile]
-  \frametitle{Bad Practice}
+    \frametitle{StackOverflow Survey 2019}
   
-  The following is not a good branch name:
-  \begin{minted}[fontsize=\small]{bash}
-bugfixes
-  \end{minted}
-  
-  \begin{itemize}
-      \item It's \textbf{not} descriptive.
-      \item It does \textbf{not} mention the main maintainer of the branch.
-      \item It does \textbf{not} mention the problem it's trying to solve.
-  \end{itemize}
+    \begin{table}[c]
+        \centering
+        \begin{tabular}{l|cc}
+            Language & Pros & All \\
+            \hline
+            JavaScript & 1 & 1 \\
+            Python & 2 & 2 \\
+            Java & 3 & 3 \\
+            C\# & 4 & 4 \\
+            PHP & 5 & 5 \\
+            TypeScript & 6 & 7 \\
+            C++ & 7 & 6 \\
+            C & 8 & 8 \\
+            Ruby & 9 & 9 \\
+            Go & 10 & 10
+        \end{tabular}
+        \caption{Top 10 programming languages}
+        \label{tab:stackoverflow-top-10}
+    \end{table}
 
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Good Practice}
-  
-  The following branch name is good:
-  \begin{minted}[fontsize=\small]{bash}
-mar/fix-router-subscription-bug
-  \end{minted}
-  
-  \begin{itemize}
-      \item It is descriptive.
-      \item It does mention the main maintainer of the branch.
-      \item It does mention the problem it's trying to solve.
-  \end{itemize}
-
+    \frametitle{PyPL Index 2020}
+    
+    \begin{table}
+        \centering
+        \begin{tabular}{ll|l|ll}
+            Rank & Change & Language & Share & Trend \\ \hline
+            1 &  & Python & 31.17 \% & +4.3 \% \\ 
+            2 &  & Java & 17.75 \% & -2.4 \% \\ 
+            3 &  & Javascript & 7.99 \% & -0.3 \% \\ 
+            4 &  & C\# & 7.05 \% & -0.2 \% \\ 
+            5 &  & PHP & 6.09 \% & -1.0 \% \\ 
+            6 &  & C/C++ & 5.67 \% & -0.3 \% \\ 
+            7 &  & R & 3.93 \% & -0.1 \% \\ 
+            8 &  & Objective-C & 2.4 \% & -0.4 \% \\ 
+            9 &  & Swift & 2.26 \% & -0.1 \% \\ 
+            10 & -1 & TypeScript & 1.89 \% & +0.3 \% \\
+        \end{tabular}
+        \caption{Top 10 programming languages}
+        \label{tab:pypl-top-10}
+\end{table}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Better Practice}
-  
-  The following branch name is even better:
-  \begin{minted}[fontsize=\small]{bash}
-mar/18-fix-router-subscription-bug
-  \end{minted}
-  
-  The number \texttt{18} refers to GitLab's ticket number.
-  
-  \begin{itemize}
-      \item It is descriptive.
-      \item It does mention the main maintainer of the branch.
-      \item It contains a link the problem it's trying to solve.
-  \end{itemize}
-
+    \frametitle{Octaverse}
+    
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.4]{images/octaverse.png}
+        \caption{Top 10 programming languages}
+        \label{fig:octaverse-top-10}
+    \end{figure}
 \end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{GitLab Branch Creation}
-  
-  \begin{figure}
-      \centering
-      \includegraphics[scale=0.3]{images/gitlab-branch-1.png}
-      \caption{GitLab issue view}
-      \label{fig:gitlab1}
-  \end{figure}
-
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{GitLab Branch Creation}
-  
-  \begin{figure}
-      \centering
-      \includegraphics[scale=0.3]{images/gitlab-branch-2.png}
-      \caption{GitLab issue view}
-      \label{fig:gitlab2}
-  \end{figure}
-
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{GitLab Branch Creation}
-  
-  \begin{figure}
-      \centering
-      \includegraphics[scale=0.3]{images/gitlab-branch-3.png}
-      \caption{GitLab issue view}
-      \label{fig:gitlab3}
-  \end{figure}
-
-\end{frame}
-
-\section{Commit Messages}
-
-\begin{frame}[fragile]
-  \frametitle{Bad Practice}
-  
-  The following is not a good commit message:
-  \begin{minted}[fontsize=\small]{bash}
-Fix Router-Bug
-  \end{minted}
-  
-  \begin{itemize}
-      \item It's \textbf{not} descriptive: which bug is being fixed?
-      \item It has bad capitalization.
-  \end{itemize}
-
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Good Practice}
-  
-  The following is a better commit message:
-  \begin{minted}[fontsize=\small]{bash}
-Store fragment subscription to be able to unsubscribe later
-  \end{minted}
-
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Better Practice}
-  
-  The following commit message is even better:
-  \begin{minted}[fontsize=\small]{text}
-Store fragment subscription (Fixes #18)
-
-The subscription must be stored in a class attribute,
-in order to be able to unsubscribe it later.
-  \end{minted}
-  
-  Other GitLab commit message magic words:
-  \begin{itemize}
-      \item \texttt{Closes console/console-node\#44}
-      \item \texttt{Fixes \#18 and closes console/console-node\#44}
-      \item \texttt{See \#11}
-  \end{itemize}
-
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Best Practice}
-  
-  The following commit message is the best:
-  \begin{minted}[fontsize=\small]{text}
-Fix (Routing): Store fragment subscription
-
-The subscription must be stored in a class attribute,
-in order to be able to unsubscribe it later.
-
-Fixes #18
-  \end{minted}
-  
-  This commit message style is based on \href{https://www.conventionalcommits.org/en/v1.0.0/}{Conventional Commits v1.0.0}.
-
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Best Practice: Conventional Commits}
-  
-  A commit must have the following format:
-  \begin{minted}[fontsize=\small]{text}
-<Type> [Scope?]: <Description>
-
-[Body?]
-
-[Footer?]
-  \end{minted}
-  
-  The available types are:
-  \begin{itemize}
-      \item \texttt{Fix}: correlates with semantic versioning \texttt{PATCH}
-      \item \texttt{Feat}/\texttt{Feature}: correlates with semantic versioning \texttt{MINOR}
-  \end{itemize}
-  Also: \texttt{Build}, \texttt{CI}, \texttt{Docs}, \texttt{Perf}, \texttt{Refactor}, \texttt{Style}, \texttt{Test}
-
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Commit Message Line Limits}
-  
-  The seven rules of a great Git commit message:
-  \begin{enumerate}
-      \setcounter{enumi}{1}
-      \item Limit the subject line to 50 characters
-      \setcounter{enumi}{5}
-      \item Wrap the body at 72 characters
-  \end{enumerate}
-
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Commit Message Line Limits + Jetbrains}
-  
-  \begin{figure}
-      \centering
-      \includegraphics[scale=0.25]{images/jetbrains-commit-message-settings.png}
-      \caption{JetBrain's IDEs commit message settings}
-      \label{fig:commit-settings}
-  \end{figure}
-
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Commit Message Line Limits + Jetbrains}
-  
-  \begin{figure}
-      \centering
-      \includegraphics[scale=0.35]{images/jetbrains-commit-message.png}
-      \caption{JetBrain's IDEs commit message dialog}
-      \label{fig:commit-dialog}
-  \end{figure}
-
-\end{frame}
-
 
 \plain{}{Questions?}
 
